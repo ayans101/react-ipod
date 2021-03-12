@@ -14,7 +14,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +25,52 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.wheel{
+  height: 200px;
+  width: 240px;
+  background-color: silver;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rotatable{
+  height: 200px;
+  width: 200px;
+  background-color: white;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /* position: relative; */
+}
+
+.menu-button{
+  /* position: absolute; */
+}
+
+.wheel-mid-div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.prev-button{
+  /* position: absolute; */
+}
+
+.enter-button{
+  height: 80px;
+  width: 80px;
+  background-color: silver;
+  border-radius: 100%;
+  /* position: absolute; */
+
+}
+
+.next-button{
+  /* position: absolute; */
 }
