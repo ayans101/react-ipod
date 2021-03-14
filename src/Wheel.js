@@ -9,8 +9,6 @@ import PauseIcon from '@material-ui/icons/Pause';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { grey } from '@material-ui/core/colors';
 
-import ZingTouch from 'zingtouch';
-
 //  update material ui themes with ThemeProvider
 const theme = createMuiTheme({
     palette: {
@@ -21,22 +19,6 @@ const theme = createMuiTheme({
 });
 
 class Wheel extends React.Component {
-    constructor() {
-        super();
-        this.state = { currentAngle: 0 }
-    }
-
-    //  add event listener to capture rotation around wheel
-    componentDidMount() {
-        var { currentAngle } = this.state;
-        const target = document.querySelector('.rotatable');
-        const region = new ZingTouch.Region(target);
-        region.bind(target, 'rotate', function(e) {
-            currentAngle = e.detail.angle;
-            console.log(currentAngle);
-        });
-    }
-
     render() {
         return (
             <ThemeProvider theme={theme}>
