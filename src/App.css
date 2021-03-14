@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .wheel{
@@ -74,3 +74,38 @@
 .next-button{
   /* position: absolute; */
 }
+
+.screen{
+  box-sizing: border-box;
+  height: 200px;
+  width: 240px;
+  background-color: white;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+}
+
+.menu{
+  height: 100%;
+  width: 120px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu p{
+  margin: 12px;
+  text-align: start;
+}
+
+.menu div{
+  font-size: 12px;
+  padding: 4px;
+  margin: 2px;
+  text-align: start;
+}
+
+.list-item.active{
+  background-color: #3882d8;
+}
+
