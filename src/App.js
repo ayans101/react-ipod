@@ -8,7 +8,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentListItem: 0
+      currentListItem: 0,
+      displayMainMenu: true,
+      displayHomeScreen: true,
+      displayCoverflow: false,
+      displayMusicWindow: false,
+      displayGamesWindow: false,
+      displaySettingsWindow: false
     }
   }
 
@@ -43,7 +49,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Screen />
+          <Screen 
+          displayWindow={this.state} />
           <Wheel />
         </header>
       </div>

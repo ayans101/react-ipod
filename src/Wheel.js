@@ -33,7 +33,9 @@ class Wheel extends React.Component {
                             <IconButton className="prev-button">
                                 <SkipPreviousIcon />
                             </IconButton>
-                            <div className="enter-button"></div>
+                            <IconButton>
+                                <div className="enter-button"></div>
+                            </IconButton>
                             <IconButton className="next-IconButton">
                                 <SkipNextIcon />
                             </IconButton>
