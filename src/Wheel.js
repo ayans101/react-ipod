@@ -20,13 +20,16 @@ const theme = createMuiTheme({
 
 class Wheel extends React.Component {
     render() {
-        const { openWindow } = this.props;
+        const { openWindow, closeWindow } = this.props;
         return (
             <ThemeProvider theme={theme}>
                 <div className="wheel">
                     <div className="rotatable">
                         <div>
-                            <Button color="primary" className="menu-button">
+                            <Button 
+                            color="primary" 
+                            className="menu-button"
+                            onClick={() => closeWindow()}>
                                 MENU
                             </Button>
                         </div>

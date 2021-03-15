@@ -46,7 +46,7 @@ class App extends React.Component {
   }
 
   // Handling click on a menu item
-  handleClickOnMenu = () => {
+  handleClickOnMenuItem = () => {
     let { 
       displayMainMenu,
       displayHomeScreen, 
@@ -55,7 +55,7 @@ class App extends React.Component {
       displayGamesWindow,
       displaySettingsWindow 
     } = this.state;
-    
+
     //  From main menu choose the component to be rendered
     if(displayMainMenu && displayHomeScreen){
       let activeItem = document.getElementsByClassName("active");
@@ -95,6 +95,36 @@ class App extends React.Component {
 
   }
 
+  //  Handling click on menu button
+  handleClickOnMenuButton = () => {
+    let { 
+      displayMainMenu,
+      displayHomeScreen, 
+      displayCoverflow, 
+      displayMusicWindow,
+      displayGamesWindow,
+      displaySettingsWindow 
+    } = this.state;
+    
+    if(displayCoverflow || displayMusicWindow || displayGamesWindow || displaySettingsWindow){
+      displayCoverflow = false;
+      displayMusicWindow = false;
+      displayGamesWindow = false;
+      displaySettingsWindow = false;
+      displayMainMenu = true;
+      displayHomeScreen = true;
+      this.setState({
+        displayMainMenu,
+        displayHomeScreen, 
+        displayCoverflow, 
+        displayMusicWindow,
+        displayGamesWindow,
+        displaySettingsWindow 
+      })
+    }
+
+  }
+
   render(){
     return (
       <div className="App">
@@ -104,7 +134,8 @@ class App extends React.Component {
           />
           <Wheel 
           currentListItem={this.state.currentListItem}
-          openWindow={this.handleClickOnMenu}
+          openWindow={this.handleClickOnMenuItem}
+          closeWindow={this.handleClickOnMenuButton}
           />
         </header>
       </div>
