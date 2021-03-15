@@ -26,10 +26,7 @@ class Wheel extends React.Component {
                 <div className="wheel">
                     <div className="rotatable">
                         <div>
-                            <Button 
-                            color="primary" 
-                            className="menu-button"
-                            onClick={() => openWindow()}>
+                            <Button color="primary" className="menu-button">
                                 MENU
                             </Button>
                         </div>
@@ -37,7 +34,8 @@ class Wheel extends React.Component {
                             <IconButton className="prev-button">
                                 <SkipPreviousIcon />
                             </IconButton>
-                            <IconButton>
+                            <IconButton
+                            onClick={() => openWindow()}>
                                 <div className="enter-button"></div>
                             </IconButton>
                             <IconButton className="next-IconButton">

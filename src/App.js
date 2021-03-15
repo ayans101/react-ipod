@@ -55,33 +55,35 @@ class App extends React.Component {
       displayGamesWindow,
       displaySettingsWindow 
     } = this.state;
-    const activeItem = document.getElementsByClassName("active");
-    const window = activeItem[0].innerHTML;
+    
+    //  From main menu choose the component to be rendered
     if(displayMainMenu && displayHomeScreen){
+      let activeItem = document.getElementsByClassName("active");
+      let window = activeItem[0].innerHTML;
       displayMainMenu = false;
       displayHomeScreen = false;
-      if(window == "Cover Flow"){
+      if(window === "Cover Flow"){
         displayCoverflow = true;
         this.setState({
           displayMainMenu,
           displayHomeScreen,
           displayCoverflow
         })
-      }else if(window == "Music"){
+      }else if(window === "Music"){
         displayMusicWindow = true;
         this.setState({
           displayMainMenu,
           displayHomeScreen,
           displayMusicWindow
         })
-      }else if(window == "Games"){
+      }else if(window === "Games"){
         displayGamesWindow = true;
         this.setState({
           displayMainMenu,
           displayHomeScreen,
           displayGamesWindow
         })
-      }else if(window == "Settings"){
+      }else if(window === "Settings"){
         displaySettingsWindow = true;
         this.setState({
           displayMainMenu,
@@ -90,6 +92,7 @@ class App extends React.Component {
         })
       }
     }
+
   }
 
   render(){
