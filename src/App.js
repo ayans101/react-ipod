@@ -45,13 +45,23 @@ class App extends React.Component {
     });
   }
 
+  // Handling click on a menu item
+  handleClickOnMenu = () => {
+    const activeItem = document.getElementsByClassName("active");
+    console.log(activeItem[0].innerHTML);
+  }
+
   render(){
     return (
       <div className="App">
         <header className="App-header">
           <Screen 
-          displayWindow={this.state} />
-          <Wheel />
+          displayWindow={this.state} 
+          />
+          <Wheel 
+          currentListItem={this.state.currentListItem}
+          openWindow={this.handleClickOnMenu}
+          />
         </header>
       </div>
     );
