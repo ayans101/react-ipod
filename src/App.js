@@ -47,8 +47,49 @@ class App extends React.Component {
 
   // Handling click on a menu item
   handleClickOnMenu = () => {
+    let { 
+      displayMainMenu,
+      displayHomeScreen, 
+      displayCoverflow, 
+      displayMusicWindow,
+      displayGamesWindow,
+      displaySettingsWindow 
+    } = this.state;
     const activeItem = document.getElementsByClassName("active");
-    console.log(activeItem[0].innerHTML);
+    const window = activeItem[0].innerHTML;
+    if(displayMainMenu && displayHomeScreen){
+      displayMainMenu = false;
+      displayHomeScreen = false;
+      if(window == "Cover Flow"){
+        displayCoverflow = true;
+        this.setState({
+          displayMainMenu,
+          displayHomeScreen,
+          displayCoverflow
+        })
+      }else if(window == "Music"){
+        displayMusicWindow = true;
+        this.setState({
+          displayMainMenu,
+          displayHomeScreen,
+          displayMusicWindow
+        })
+      }else if(window == "Games"){
+        displayGamesWindow = true;
+        this.setState({
+          displayMainMenu,
+          displayHomeScreen,
+          displayGamesWindow
+        })
+      }else if(window == "Settings"){
+        displaySettingsWindow = true;
+        this.setState({
+          displayMainMenu,
+          displayHomeScreen,
+          displaySettingsWindow
+        })
+      }
+    }
   }
 
   render(){
