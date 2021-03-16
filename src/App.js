@@ -31,19 +31,19 @@ class App extends React.Component {
       if(counter >= 30){
         const prevItem = document.getElementsByClassName("list-item")[currentListItem];
         if(prevItem){
-          prevItem.classList.toggle('active');
+          prevItem.classList.remove('active');
         }
         currentListItem = (currentListItem + 1) % 4;
         const currItem = document.getElementsByClassName("list-item")[currentListItem]
         if(currItem){
-          currItem.classList.toggle('active');
+          currItem.classList.add('active');
         }
         counter = 0;
       }
       if(counter <= -30){
         const prevItem = document.getElementsByClassName("list-item")[currentListItem];
         if(prevItem){
-          prevItem.classList.toggle('active');
+          prevItem.classList.remove('active');
         }
         currentListItem = currentListItem - 1;
         if(currentListItem === -1){
@@ -51,7 +51,7 @@ class App extends React.Component {
         }
         const currItem = document.getElementsByClassName("list-item")[currentListItem]
         if(currItem){
-          currItem.classList.toggle('active');
+          currItem.classList.add('active');
         }
         counter = 0;
       }
