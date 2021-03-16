@@ -121,6 +121,16 @@ class App extends React.Component {
         displayGamesWindow,
         displaySettingsWindow 
       })
+    }else if(displayMainMenu && displayHomeScreen){
+      displayMainMenu = false;
+      this.setState({
+        displayMainMenu, 
+      })
+    }else if(!displayMainMenu && displayHomeScreen){
+      displayMainMenu = true;
+      this.setState({
+        displayMainMenu,
+      })
     }
 
   }
