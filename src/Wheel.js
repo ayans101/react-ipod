@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from '@material-ui/core/IconButton';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import SkipNextIcon from "@material-ui/icons/SkipNext";
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import PauseIcon from '@material-ui/icons/Pause';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { grey } from '@material-ui/core/colors';
@@ -47,7 +48,8 @@ class Wheel extends React.Component {
                         </div>
                         <div>
                             <IconButton className="play-pause-button">
-                                <PauseIcon />
+                                <PlayArrowIcon fontSize="small" />
+                                <PauseIcon fontSize="small" />
                             </IconButton>
                         </div>
                     </div>

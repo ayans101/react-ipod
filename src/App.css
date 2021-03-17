@@ -199,3 +199,26 @@
   font-size: 16px;
   font-weight: 600;
 }
+
+.music-menu{
+  z-index: 5;
+  position: absolute;
+  background-color: white;
+  height: 100%;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+.music-menu p{
+  margin: 12px;
+  text-align: start;
+  font-weight: bold;
+}
+
+.music-menu div{
+  font-size: 12px;
+  padding: 6px 8px;
+  margin: 4px 8px;
+  text-align: start;
+}
