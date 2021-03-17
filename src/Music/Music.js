@@ -1,11 +1,17 @@
 import React from 'react';
-import Musicmenu from './Musicmenu'
+import MusicScreen from './MusicScreen';
 
 class Music extends React.Component {
     render() {
+        const { displayWindow } = this.props;
+        console.log(displayWindow);
         return (
-            <div className="music-window">
-                <Musicmenu />
+            <div className="music-header">
+                <div className="music-window">
+                    <MusicScreen
+                    displayWindow={displayWindow} 
+                    />
+                </div>
             </div>
         )
     }

@@ -14,7 +14,11 @@ class App extends React.Component {
       displayCoverflow: false,
       displayMusicWindow: false,
       displayGamesWindow: false,
-      displaySettingsWindow: false
+      displaySettingsWindow: false,
+      displayMusicMenu: false,
+      displayAllSongs: false,
+      displayArtists: false,
+      displayAlbums: false
     }
   }
 
@@ -61,12 +65,17 @@ class App extends React.Component {
   // Handling click on a menu item
   handleClickOnMenuItem = () => {
     let { 
+      currentListItem,
       displayMainMenu,
-      displayHomeScreen, 
-      displayCoverflow, 
+      displayHomeScreen,
+      displayCoverflow,
       displayMusicWindow,
       displayGamesWindow,
-      displaySettingsWindow 
+      displaySettingsWindow,
+      displayMusicMenu,
+      displayAllSongs,
+      displayArtists,
+      displayAlbums
     } = this.state;
 
     //  From main menu choose the component to be rendered
@@ -83,11 +92,14 @@ class App extends React.Component {
           displayCoverflow
         })
       }else if(window === "Music"){
+        displayHomeScreen = true;
         displayMusicWindow = true;
+        displayMusicMenu = true;
         this.setState({
           displayMainMenu,
           displayHomeScreen,
-          displayMusicWindow
+          displayMusicWindow,
+          displayMusicMenu
         })
       }else if(window === "Games"){
         displayGamesWindow = true;
@@ -104,6 +116,36 @@ class App extends React.Component {
           displaySettingsWindow
         })
       }
+    }
+    
+    //  From music menu choose the component to be rendered
+    if(displayMusicMenu && displayHomeScreen){
+        let activeItem = document.getElementsByClassName("active");
+        let window = activeItem[0].innerHTML;
+        displayMusicMenu = false;
+        displayHomeScreen = false;
+        if(window === "All Songs"){
+            displayAllSongs = true;
+            this.setState({
+                displayMusicMenu,
+                displayHomeScreen,
+                displayAllSongs
+            })
+        }else if(window === "Artists"){
+            displayArtists = true;
+            this.setState({
+                displayMusicMenu,
+                displayHomeScreen,
+                displayArtists
+            })
+        }else if(window === "Albums"){
+            displayAlbums = true;
+            this.setState({
+                displayMusicMenu,
+                displayHomeScreen,
+                displayAlbums
+            })
+        }
     }
 
   }

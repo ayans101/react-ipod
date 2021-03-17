@@ -15,7 +15,7 @@ class Screen extends React.Component {
                 {displayWindow.displayMainMenu && <Menu />}
                 {displayWindow.displayHomeScreen && <Home />}
                 {displayWindow.displayCoverflow && <Coverflow />}
-                {displayWindow.displayMusicWindow && <Music />}
+                {displayWindow.displayMusicWindow && <Music displayWindow={displayWindow}/>}
                 {displayWindow.displayGamesWindow && <Games />}
                 {displayWindow.displaySettingsWindow && <Settings />}
             </div>
