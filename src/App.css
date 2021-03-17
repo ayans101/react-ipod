@@ -180,3 +180,22 @@
   font-size: 16px;
   font-weight: 600;
 }
+
+.games-window{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.games-window img{
+  height: 80px;
+  width: 80px;
+}
+
+.games-window p{
+  font-size: 16px;
+  font-weight: 600;
+}
