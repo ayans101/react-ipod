@@ -196,14 +196,18 @@ class App extends React.Component {
     let { 
       currentListItem,
       displayMainMenu,
-      displayHomeScreen, 
-      displayCoverflow, 
+      displayHomeScreen,
+      displayCoverflow,
       displayMusicWindow,
       displayGamesWindow,
-      displaySettingsWindow 
+      displaySettingsWindow,
+      displayMusicMenu,
+      displayAllSongs,
+      displayArtists,
+      displayAlbums
     } = this.state;
     
-    if(displayCoverflow || displayMusicWindow || displayGamesWindow || displaySettingsWindow){
+    if(displayCoverflow || (displayMusicWindow && displayMusicMenu) || displayGamesWindow || displaySettingsWindow){
       if(displayCoverflow){
         currentListItem = 0;
       }
@@ -231,6 +235,30 @@ class App extends React.Component {
         displayGamesWindow,
         displaySettingsWindow 
       })
+    }else if(displayAllSongs || displayArtists || displayAlbums){
+      if(displayAllSongs){
+        currentListItem = 0;
+      }
+      if(displayArtists){
+        currentListItem = 1;
+      }
+      if(displayAlbums){
+        currentListItem = 2;
+      }
+      displayAllSongs = false;
+      displayArtists = false;
+      displayAlbums = false;
+      displayMusicMenu = true;
+      displayHomeScreen = true;
+      this.setState({
+        currentListItem,
+        displayHomeScreen,
+        displayMusicMenu,
+        displayAllSongs,
+        displayArtists,
+        displayAlbums
+      })
+
     }else if(displayMainMenu && displayHomeScreen){
       displayMainMenu = false;
       this.setState({
