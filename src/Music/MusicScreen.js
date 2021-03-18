@@ -13,7 +13,7 @@ class MusicScreen extends React.Component {
             <div className="music-screen">
                 {displayWindow.displayMusicMenu && <Musicmenu />}
                 {displayWindow.displayHomeScreen && <Home />}
-                {displayWindow.displayPlaylist && <Playlist />}
+                {displayWindow.displayAllSongs && <Playlist />}
                 {displayWindow.displayArtists && <Artists />}
                 {displayWindow.displayAlbums && <Albums />}
             </div>

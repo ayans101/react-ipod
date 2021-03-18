@@ -25,35 +25,59 @@ class App extends React.Component {
   //  add event listener to capture rotation around wheel
   componentDidMount() {
     let { currentListItem } = this.state;
+    document.getElementsByClassName("list-item")[currentListItem].classList.add("active");
     let counter = 0;
     const target = document.querySelector('.rotatable');
-    target.draggable = false;
     const region = new ZingTouch.Region(target);
     region.bind(target, 'rotate', function(e) {
       counter += e.detail.distanceFromLast;
-      console.log(counter);
+      // console.log(counter);
       if(counter >= 30){
-        const prevItem = document.getElementsByClassName("list-item")[currentListItem];
+        let n=0;
+        while(document.getElementsByClassName("list-item")[n]){
+          n++;
+        }
+        for(let i=0;i<n;i++){
+          if(document.getElementsByClassName("list-item")[i] === document.getElementsByClassName("active")[0]){
+            currentListItem = i;
+          }
+        }
+        const prevItem = document.getElementsByClassName("active")[0];
         if(prevItem){
           prevItem.classList.remove('active');
         }
-        currentListItem = (currentListItem + 1) % 4;
-        const currItem = document.getElementsByClassName("list-item")[currentListItem]
+        if(n !== 0){
+          currentListItem = (currentListItem + 1) % n;
+        }
+        console.log("** ", currentListItem);
+        const currItem = document.getElementsByClassName("list-item")[currentListItem];
         if(currItem){
           currItem.classList.add('active');
         }
         counter = 0;
       }
       if(counter <= -30){
-        const prevItem = document.getElementsByClassName("list-item")[currentListItem];
+        let n=0;
+        while(document.getElementsByClassName("list-item")[n]){
+          n++;
+        }
+        for(let i=0;i<n;i++){
+          if(document.getElementsByClassName("list-item")[i] === document.getElementsByClassName("active")[0]){
+            currentListItem = i;
+          }
+        }
+        const prevItem = document.getElementsByClassName("active")[0];
         if(prevItem){
           prevItem.classList.remove('active');
         }
-        currentListItem = currentListItem - 1;
-        if(currentListItem === -1){
-          currentListItem = 3;
+        if(n !== 0){
+          currentListItem = currentListItem - 1;
+          if(currentListItem === -1){
+            currentListItem = n-1;
+          }
         }
-        const currItem = document.getElementsByClassName("list-item")[currentListItem]
+        console.log("** ", currentListItem);
+        const currItem = document.getElementsByClassName("list-item")[currentListItem];
         if(currItem){
           currItem.classList.add('active');
         }
@@ -62,7 +86,15 @@ class App extends React.Component {
     });
   }
 
-  // Handling click on a menu item
+  componentDidUpdate() {
+    let { currentListItem } = this.state;
+    const activeLI = document.getElementsByClassName("list-item")[currentListItem];
+    if(activeLI){
+      activeLI.classList.add("active");
+    }
+  }
+
+  // Handling click Enter button
   handleClickOnMenuItem = () => {
     let { 
       currentListItem,
@@ -82,11 +114,13 @@ class App extends React.Component {
     if(displayMainMenu && displayHomeScreen){
       let activeItem = document.getElementsByClassName("active");
       let window = activeItem[0].innerHTML;
+      currentListItem = 0;
       displayMainMenu = false;
       displayHomeScreen = false;
       if(window === "Cover Flow"){
         displayCoverflow = true;
         this.setState({
+          currentListItem,
           displayMainMenu,
           displayHomeScreen,
           displayCoverflow
@@ -96,6 +130,7 @@ class App extends React.Component {
         displayMusicWindow = true;
         displayMusicMenu = true;
         this.setState({
+          currentListItem,
           displayMainMenu,
           displayHomeScreen,
           displayMusicWindow,
@@ -104,6 +139,7 @@ class App extends React.Component {
       }else if(window === "Games"){
         displayGamesWindow = true;
         this.setState({
+          currentListItem,
           displayMainMenu,
           displayHomeScreen,
           displayGamesWindow
@@ -111,6 +147,7 @@ class App extends React.Component {
       }else if(window === "Settings"){
         displaySettingsWindow = true;
         this.setState({
+          currentListItem,
           displayMainMenu,
           displayHomeScreen,
           displaySettingsWindow
@@ -122,28 +159,32 @@ class App extends React.Component {
     if(displayMusicMenu && displayHomeScreen){
         let activeItem = document.getElementsByClassName("active");
         let window = activeItem[0].innerHTML;
+        currentListItem = 0;
         displayMusicMenu = false;
         displayHomeScreen = false;
         if(window === "All Songs"){
             displayAllSongs = true;
             this.setState({
-                displayMusicMenu,
-                displayHomeScreen,
-                displayAllSongs
+              currentListItem,
+              displayMusicMenu,
+              displayHomeScreen,
+              displayAllSongs
             })
         }else if(window === "Artists"){
             displayArtists = true;
             this.setState({
-                displayMusicMenu,
-                displayHomeScreen,
-                displayArtists
+              currentListItem,
+              displayMusicMenu,
+              displayHomeScreen,
+              displayArtists
             })
         }else if(window === "Albums"){
             displayAlbums = true;
             this.setState({
-                displayMusicMenu,
-                displayHomeScreen,
-                displayAlbums
+              currentListItem,
+              displayMusicMenu,
+              displayHomeScreen,
+              displayAlbums
             })
         }
     }
@@ -153,6 +194,7 @@ class App extends React.Component {
   //  Handling click on menu button
   handleClickOnMenuButton = () => {
     let { 
+      currentListItem,
       displayMainMenu,
       displayHomeScreen, 
       displayCoverflow, 
@@ -162,6 +204,18 @@ class App extends React.Component {
     } = this.state;
     
     if(displayCoverflow || displayMusicWindow || displayGamesWindow || displaySettingsWindow){
+      if(displayCoverflow){
+        currentListItem = 0;
+      }
+      if(displayMusicWindow){
+        currentListItem = 1;
+      }
+      if(displayGamesWindow){
+        currentListItem = 2;
+      }
+      if(displaySettingsWindow){
+        currentListItem = 3;
+      }
       displayCoverflow = false;
       displayMusicWindow = false;
       displayGamesWindow = false;
@@ -169,6 +223,7 @@ class App extends React.Component {
       displayMainMenu = true;
       displayHomeScreen = true;
       this.setState({
+        currentListItem,
         displayMainMenu,
         displayHomeScreen, 
         displayCoverflow, 

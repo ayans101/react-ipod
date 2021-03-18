@@ -5,7 +5,7 @@ class Menu extends React.Component {
         return (
             <div className="menu">
                 <p>iPod</p>
-                <div className="list-item active">Cover Flow</div>
+                <div className="list-item">Cover Flow</div>
                 <div className="list-item">Music</div>
                 <div className="list-item">Games</div>
                 <div className="list-item">Settings</div>
