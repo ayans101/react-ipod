@@ -18,7 +18,44 @@ class App extends React.Component {
       displayMusicMenu: false,
       displayAllSongs: false,
       displayArtists: false,
-      displayAlbums: false
+      displayAlbums: false,
+      songs: [
+        {
+          idx: 0,
+          name: "Superheroes",
+          path: "Songs/TheScript/1_Superheroes.m4a",
+          img: "Songs/TheScript/1_Superheroes.jpg",
+          singer: "The Script"
+        },
+        {
+          idx: 1,
+          name: "Army of Angles",
+          path: "Songs/TheScript/2_Army of Angels.m4a",
+          img: "Songs/TheScript/2_Army of Angels.jpg",
+          singer: "The Script"
+        },
+        {
+          idx: 2,
+          name: "The Energy Never Dies",
+          path: "Songs/TheScript/3_The Energy Never Dies.m4a",
+          img: "Songs/TheScript/3_The Energy Never Dies.jpg",
+          singer: "The Script"
+        },
+        {
+          idx: 3,
+          name: "Arms Open",
+          path: "Songs/TheScript/4_Arms Open.m4a",
+          img: "Songs/TheScript/4_Arms Open.jpg",
+          singer: "The Script"
+        },
+        {
+          idx: 4,
+          name: "Hall of Fame",
+          path: "Songs/TheScript/5_Hall of Fame.m4a",
+          img: "Songs/TheScript/5_Hall of Fame.jpg",
+          singer: "The Script"
+        }
+      ]
     }
   }
 
