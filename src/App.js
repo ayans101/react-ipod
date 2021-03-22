@@ -3,6 +3,7 @@ import './App.css';
 import Wheel from './Wheel';
 import Screen from './Screen';
 import ZingTouch from 'zingtouch';
+import $ from 'jquery';
 
 class App extends React.Component {
   constructor() {
@@ -19,43 +20,47 @@ class App extends React.Component {
       displayAllSongs: false,
       displayArtists: false,
       displayAlbums: false,
+      displayTrackDetail: false,
       songs: [
         {
           idx: 0,
           name: "Superheroes",
-          path: "Songs/TheScript/1_Superheroes.m4a",
-          img: "Songs/TheScript/1_Superheroes.jpg",
+          path: "./Songs/TheScript/1_Superheroes.m4a",
+          img: "./Songs/TheScript/1_Superheroes.jpg",
           singer: "The Script"
         },
         {
           idx: 1,
           name: "Army of Angles",
-          path: "Songs/TheScript/2_Army of Angels.m4a",
-          img: "Songs/TheScript/2_Army of Angels.jpg",
+          path: "./Songs/TheScript/2_Army of Angels.m4a",
+          img: "./Songs/TheScript/2_Army of Angels.jpg",
           singer: "The Script"
         },
         {
           idx: 2,
           name: "The Energy Never Dies",
-          path: "Songs/TheScript/3_The Energy Never Dies.m4a",
-          img: "Songs/TheScript/3_The Energy Never Dies.jpg",
+          path: "./Songs/TheScript/3_The Energy Never Dies.m4a",
+          img: "./Songs/TheScript/3_The Energy Never Dies.jpg",
           singer: "The Script"
         },
         {
           idx: 3,
           name: "Arms Open",
-          path: "Songs/TheScript/4_Arms Open.m4a",
-          img: "Songs/TheScript/4_Arms Open.jpg",
+          path: "./Songs/TheScript/4_Arms Open.m4a",
+          img: "./Songs/TheScript/4_Arms Open.jpg",
           singer: "The Script"
         },
         {
           idx: 4,
           name: "Hall of Fame",
-          path: "Songs/TheScript/5_Hall of Fame.m4a",
-          img: "Songs/TheScript/5_Hall of Fame.jpg",
+          path: "./Songs/TheScript/5_Hall of Fame.m4a",
+          img: "./Songs/TheScript/5_Hall of Fame.jpg",
           singer: "The Script"
         }
-      ]
+      ],
+      index_no: 0,
+      track: document.createElement('audio'),
+      playing_song: false
     }
   }
 
@@ -64,6 +69,7 @@ class App extends React.Component {
     let { currentListItem } = this.state;
     document.getElementsByClassName("list-item")[currentListItem].classList.add("active");
     let counter = 0;
+    //  create a region to listen for events
     const target = document.querySelector('.rotatable');
     const region = new ZingTouch.Region(target);
     region.bind(target, 'rotate', function(e) {
@@ -120,6 +126,25 @@ class App extends React.Component {
         }
         counter = 0;
       }
+    });
+
+
+    let { songs, track, index_no, playing_song } = this.state;
+
+    // set the src and load the track
+    track.src = songs[index_no].path;
+    track.load();
+
+    // add listener to play or pause the track 
+    $('.play-pause-button').click(() => {
+        if(!playing_song){
+            track.play();
+            playing_song = true;
+
+        }else{
+            track.pause();
+            playing_song = false;
+        }
     });
   }
 

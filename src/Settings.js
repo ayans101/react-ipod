@@ -4,7 +4,7 @@ class Settings extends React.Component {
     render() {
         return (
             <div className="settings-window">
-                <img src="https://www.flaticon.com/svg/vstatic/svg/975/975660.svg?token=exp=1615917080~hmac=b65d17fdb0fe8770b799205df574f18d" alt="Settings" />
+                <img src="https://www.flaticon.com/svg/vstatic/svg/975/975660.svg?token=exp=1616403607~hmac=8e63e57aee250db0d2c87c2942bb79a0" alt="Settings" />
                 <p>Settings</p>
             </div>
         )

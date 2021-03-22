@@ -42,7 +42,7 @@ class Wheel extends React.Component {
                             onClick={() => openWindow()}>
                                 <div className="enter-button"></div>
                             </IconButton>
-                            <IconButton className="next-IconButton">
+                            <IconButton className="next-button">
                                 <SkipNextIcon />
                             </IconButton>
                         </div>
