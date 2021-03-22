@@ -1,6 +1,50 @@
 import React from 'react';
+import $ from 'jquery';
 
 class Track extends React.Component {
+    componentDidMount(){
+        const { displayWindow } = this.props;
+        let { songs, track, index_no } = displayWindow;
+        function display(){
+            if($('#title')[0]){
+                $('#title')[0].innerHTML = songs[index_no].name;
+            }
+            if($('#track_image')[0]){
+                $('#track_image')[0].src = songs[index_no].img;
+            }
+            if($('#artist')[0]){
+                $('#artist')[0].innerHTML = songs[index_no].singer;
+            }
+            // display time at 00 format inserting pad() function on above
+            function pad(d){
+                return (d<10) ? '0'+d.toString() : d.toString();
+            }
+            let duration = track.duration;
+            if($('#fullDuration')[0]){
+                $('#fullDuration')[0].innerHTML = pad(parseInt(duration/60))+':'+pad(parseInt(duration%60));
+            }
+            // console.log(duration);
+            if($('#currentTime')[0]){
+                $('#currentTime')[0].innerHTML = "00:00";
+            }
+            let interval = setInterval(() => {
+                let currentTime = track.currentTime;
+                // console.log(currentTime);
+                if($('#currentTime')[0]){
+                    $('#currentTime')[0].innerHTML = pad(parseInt(currentTime/60))+':'+pad(parseInt(currentTime%60));
+                }
+                let slider = (currentTime * 210 /duration) + "px";
+                // console.log(slider);
+                if($('#progress')[0]){
+                    $('#progress')[0].style.width = slider;
+                }
+               
+            },1000)
+        }
+
+        display();
+
+    }
     render() {
         return (
             <div className="track-window">

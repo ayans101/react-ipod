@@ -20,7 +20,7 @@ class App extends React.Component {
       displayAllSongs: false,
       displayArtists: false,
       displayAlbums: false,
-      displayTrackDetail: false,
+      displayTrackDetails: false,
       songs: [
         {
           idx: 0,
@@ -72,6 +72,7 @@ class App extends React.Component {
     //  create a region to listen for events
     const target = document.querySelector('.rotatable');
     const region = new ZingTouch.Region(target);
+    //  bind rotate gesture to the region
     region.bind(target, 'rotate', function(e) {
       counter += e.detail.distanceFromLast;
       // console.log(counter);
@@ -169,7 +170,8 @@ class App extends React.Component {
       displayMusicMenu,
       displayAllSongs,
       displayArtists,
-      displayAlbums
+      displayAlbums,
+      displayTrackDetails
     } = this.state;
 
     //  From main menu choose the component to be rendered
@@ -226,11 +228,13 @@ class App extends React.Component {
         displayHomeScreen = false;
         if(window === "All Songs"){
             displayAllSongs = true;
+            displayTrackDetails = true;
             this.setState({
               currentListItem,
               displayMusicMenu,
               displayHomeScreen,
-              displayAllSongs
+              displayAllSongs,
+              displayTrackDetails
             })
         }else if(window === "Artists"){
             displayArtists = true;
@@ -266,7 +270,8 @@ class App extends React.Component {
       displayMusicMenu,
       displayAllSongs,
       displayArtists,
-      displayAlbums
+      displayAlbums,
+      displayTrackDetails
     } = this.state;
     
     if(displayCoverflow || (displayMusicWindow && displayMusicMenu) || displayGamesWindow || displaySettingsWindow){
@@ -295,7 +300,7 @@ class App extends React.Component {
         displayCoverflow, 
         displayMusicWindow,
         displayGamesWindow,
-        displaySettingsWindow 
+        displaySettingsWindow
       })
     }else if(displayAllSongs || displayArtists || displayAlbums){
       if(displayAllSongs){
@@ -308,6 +313,7 @@ class App extends React.Component {
         currentListItem = 2;
       }
       displayAllSongs = false;
+      displayTrackDetails = false;
       displayArtists = false;
       displayAlbums = false;
       displayMusicMenu = true;
@@ -318,7 +324,8 @@ class App extends React.Component {
         displayMusicMenu,
         displayAllSongs,
         displayArtists,
-        displayAlbums
+        displayAlbums,
+        displayTrackDetails
       })
 
     }else if(displayMainMenu && displayHomeScreen){

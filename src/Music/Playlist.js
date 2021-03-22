@@ -3,10 +3,11 @@ import Track from './Track';
 
 class Playlist extends React.Component {
     render() {
+        const { displayWindow } = this.props;
         return (
             <div className="playlist">
                 Playlist
-                <Track />
+                <Track displayWindow={displayWindow} />
             </div>
         )
     }
