@@ -34,6 +34,7 @@
   color: black;
 }
 
+/* Wheel Controller */
 .wheel{
   height: 200px;
   width: 240px;
@@ -84,6 +85,8 @@
   /* position: absolute; */
 }
 
+
+/* Screen */
 .screen{
   box-sizing: border-box;
   height: 200px;
@@ -233,4 +236,62 @@
   padding: 6px 8px;
   margin: 4px 8px;
   text-align: start;
+}
+
+/* Track Window */
+.track-window{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* track details */
+#details{
+  /* width: 40%; */
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* border: 2px solid white; */
+}
+#details img{
+  height: 100px;
+  width: 100px;
+  /* border-radius: 10px; */
+  /* box-shadow: 0px 0px 2px 0px grey; */
+}
+#track_details{
+  margin-left: 5px;
+  font-family: sans-serif;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#title{
+  font-weight: bold;
+  font-size: 12px;
+}
+#artist{
+  font-size: 10px;
+}
+
+#duration_slider{
+  background-color: aliceblue;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-top: 15px;
+  height: 3px;
+  width: 210px;
+}
+#progress{
+  background-color: silver;
+  width: 0px;
+  height: 3px;
+}
+#timer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 8px;
 }
