@@ -249,33 +249,33 @@ class App extends React.Component {
         let window = activeItem[0].innerHTML;
         currentListItem = 0;
         displayMusicMenu = false;
-        displayHomeScreen = false;
         if(window === "All Songs"){
-            displayAllSongs = true;
-            displayTrackDetails = true;
-            this.setState({
-              currentListItem,
-              displayMusicMenu,
-              displayHomeScreen,
-              displayAllSongs,
-              displayTrackDetails
-            })
+          // displayHomeScreen = false;
+          displayAllSongs = true;
+          displayTrackDetails = true;
+          this.setState({
+            currentListItem,
+            displayMusicMenu,
+            displayHomeScreen,
+            displayAllSongs,
+            displayTrackDetails
+          })
         }else if(window === "Artists"){
-            displayArtists = true;
-            this.setState({
-              currentListItem,
-              displayMusicMenu,
-              displayHomeScreen,
-              displayArtists
-            })
+          displayArtists = true;
+          this.setState({
+            currentListItem,
+            displayMusicMenu,
+            displayHomeScreen,
+            displayArtists
+          })
         }else if(window === "Albums"){
-            displayAlbums = true;
-            this.setState({
-              currentListItem,
-              displayMusicMenu,
-              displayHomeScreen,
-              displayAlbums
-            })
+          displayAlbums = true;
+          this.setState({
+            currentListItem,
+            displayMusicMenu,
+            displayHomeScreen,
+            displayAlbums
+          })
         }
     }
 

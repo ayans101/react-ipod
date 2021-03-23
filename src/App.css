@@ -275,17 +275,20 @@
 
 .playlist{
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80");
+  /* background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80");
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 }
 
 /* Track Window */
 .track-window{
+  z-index: 5;
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -341,4 +344,18 @@
   flex-direction: row;
   justify-content: space-between;
   font-size: 8px;
+}
+
+.artists-window{
+  z-index: 2;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.albums-window{
+  z-index: 2;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
