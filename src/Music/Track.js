@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 
 class Track extends React.Component {
+
     componentDidMount(){
         const { displayWindow } = this.props;
         let { songs, track, index_no } = displayWindow;
@@ -10,6 +11,7 @@ class Track extends React.Component {
         function pad(d){
             return (d<10) ? '0'+d.toString() : d.toString();
         }
+        let interval;
         function display(){
             if($('#title')[0]){
                 $('#title')[0].innerHTML = songs[index_no].name;
@@ -26,7 +28,7 @@ class Track extends React.Component {
             }
             function timer(){
                 let currentTime = track.currentTime;
-                // console.log(currentTime);
+                console.log(index_no,"***",currentTime);
                 if($('#currentTime')[0]){
                     $('#currentTime')[0].innerHTML = pad(parseInt(currentTime/60))+':'+pad(parseInt(currentTime%60));
                 }
@@ -40,10 +42,11 @@ class Track extends React.Component {
                 // }
             }
             // let interval = setInterval(timer,1000);
-            setInterval(timer,1);
+            interval = setInterval(timer,1000);
 
         }
 
+        clearInterval(interval);
         duration = track.duration;
         if($('#fullDuration')[0]){
             $('#fullDuration')[0].innerHTML = pad(parseInt(duration/60))+':'+pad(parseInt(duration%60));
@@ -52,6 +55,7 @@ class Track extends React.Component {
 
         // handle click on next and prev button
         $('.next-button').click(() => {
+            clearInterval(interval);
             index_no += 1;
             if(index_no === songs.length){
                 index_no = 0;
@@ -65,6 +69,7 @@ class Track extends React.Component {
             display();
         })
         $('.prev-button').click(() => {
+            clearInterval(interval);
             index_no -= 1;
             if(index_no === -1){
               index_no = songs.length-1;
@@ -79,6 +84,7 @@ class Track extends React.Component {
         })
 
     }
+
     render() {
         return (
             <div className="track-window">
