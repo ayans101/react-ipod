@@ -28,7 +28,7 @@ class Track extends React.Component {
             }
             function timer(){
                 let currentTime = track.currentTime;
-                console.log(index_no,"***",currentTime);
+                // console.log(index_no,"***",currentTime);
                 if($('#currentTime')[0]){
                     $('#currentTime')[0].innerHTML = pad(parseInt(currentTime/60))+':'+pad(parseInt(currentTime%60));
                 }
@@ -37,12 +37,12 @@ class Track extends React.Component {
                 if($('#progress')[0]){
                     $('#progress')[0].style.width = slider;
                 }
-                // if(currentTime>=duration){
-                //     clearInterval(interval);
-                // }
+                if(currentTime>=duration){
+                    clearInterval(interval);
+                }
             }
             // let interval = setInterval(timer,1000);
-            interval = setInterval(timer,2000);
+            interval = setInterval(timer,1000);
 
         }
 
