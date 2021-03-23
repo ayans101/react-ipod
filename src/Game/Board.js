@@ -135,9 +135,12 @@ class Board extends Component {
 
     render() {
         return (
-            <div className="game-area">
-                <Snake snakeDots={this.state.snakeDots}/>
-                <Food dot={this.state.food}/>
+            <div>
+                <p className="game-title">Snake Game</p>
+                <div className="game-area">
+                    <Snake snakeDots={this.state.snakeDots}/>
+                    <Food dot={this.state.food}/>
+                </div>
             </div>
         );
     }

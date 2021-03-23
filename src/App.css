@@ -215,8 +215,8 @@
 }
 
 .games-window .game-loading img{
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 80px;
 }
 
 .games-window .game-loading p{
@@ -225,6 +225,11 @@
 }
 
 /* Snake Game */
+.game-title{
+  font-size: 10px;
+  margin: 2px;
+}
+
 .game-area {
   position: relative;
   /* margin: 50px auto; */
