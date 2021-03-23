@@ -6,7 +6,6 @@ class Playlist extends React.Component {
         const { displayWindow } = this.props;
         return (
             <div className="playlist">
-                Playlist
                 <Track displayWindow={displayWindow} />
             </div>
         )

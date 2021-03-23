@@ -64,6 +64,19 @@ class Track extends React.Component {
             }
             display();
         })
+        $('.prev-button').click(() => {
+            index_no -= 1;
+            if(index_no === -1){
+              index_no = songs.length-1;
+            }
+            track.onloadedmetadata = () => {
+                duration = track.duration;
+                if($('#fullDuration')[0]){
+                    $('#fullDuration')[0].innerHTML = pad(parseInt(duration/60))+':'+pad(parseInt(duration%60));
+                }
+            }
+            display();
+        })
 
     }
     render() {

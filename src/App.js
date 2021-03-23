@@ -159,6 +159,16 @@ class App extends React.Component {
       track.play();
       playing_song = true;
     })
+    $('.prev-button').click(() => {
+      index_no -= 1;
+      if(index_no === -1){
+        index_no = songs.length-1;
+      }
+      track.src = songs[index_no].path;
+      track.load();
+      track.play();
+      playing_song = true;
+    })
     
 
   }
