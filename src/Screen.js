@@ -2,7 +2,7 @@ import React from 'react';
 import Menu from './Menu';
 import Coverflow from './Coverflow';
 import Music from './Music/Music';
-import Games from './Games';
+import Games from './Game/Games';
 import Settings from './Settings';
 import Home from './Home'
 
