@@ -40,7 +40,7 @@ class Track extends React.Component {
                 // }
             }
             // let interval = setInterval(timer,1000);
-            setInterval(timer,1000);
+            setInterval(timer,1);
 
         }
 

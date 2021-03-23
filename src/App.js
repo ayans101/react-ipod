@@ -158,6 +158,11 @@ class App extends React.Component {
       track.load();
       track.play();
       playing_song = true;
+      this.setState({
+        track,
+        index_no,
+        playing_song
+      })
     })
     $('.prev-button').click(() => {
       index_no -= 1;
@@ -168,6 +173,11 @@ class App extends React.Component {
       track.load();
       track.play();
       playing_song = true;
+      this.setState({
+        track,
+        index_no,
+        playing_song
+      })
     })
     
 
