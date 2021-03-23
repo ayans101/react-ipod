@@ -34,11 +34,25 @@
   color: black;
 }
 
+/* Wrapper */
+.wrapper{
+  background-color: #d2d1d2;
+  border-radius: 30px;
+  height: 440px;
+  width: 252px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 8px 10px 15px grey;
+}
+
 /* Wheel Controller */
 .wheel{
   height: 200px;
   width: 240px;
-  background-color: silver;
+  border-radius: 30px;
+  background-color: #d2d1d2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,8 +60,8 @@
 }
 
 .rotatable{
-  height: 200px;
-  width: 200px;
+  height: 180px;
+  width: 180px;
   background-color: white;
   border-radius: 100%;
   display: flex;
@@ -73,8 +87,8 @@
 }
 
 .enter-button{
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
   background-color: silver;
   border-radius: 100%;
   /* position: absolute; */
@@ -88,6 +102,7 @@
 
 /* Screen */
 .screen{
+  margin-top: 18px;
   box-sizing: border-box;
   height: 200px;
   width: 240px;
@@ -149,6 +164,7 @@
   background-position: center;
   padding-top: 10px;
   color: white;
+  font-size: 16px;
 }
 
 .coverflow-window{
@@ -199,8 +215,8 @@
 }
 
 .games-window .game-loading img{
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
 }
 
 .games-window .game-loading p{
@@ -346,6 +362,7 @@
   font-size: 8px;
 }
 
+/* Artists Window */
 .artists-window{
   z-index: 2;
   position: absolute;
@@ -353,6 +370,7 @@
   width: 100%;
 }
 
+/* Albums Window */
 .albums-window{
   z-index: 2;
   position: absolute;

@@ -26,7 +26,7 @@ class Games extends React.Component {
                 {   loading &&
                     <div className="game-loading">
                         <img src="./img/joystick.png" alt="Games" />
-                        <p>Game loading...</p>
+                        <p>Game loading......</p>
                         <h6>Use arrow keys on keyboard to move the snake</h6>
                     </div>
                 }

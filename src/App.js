@@ -370,14 +370,16 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Screen 
-          displayWindow={this.state} 
-          />
-          <Wheel 
-          currentListItem={this.state.currentListItem}
-          openWindow={this.handleClickOnMenuItem}
-          closeWindow={this.handleClickOnMenuButton}
-          />
+          <div className="wrapper">
+            <Screen 
+            displayWindow={this.state} 
+            />
+            <Wheel 
+            currentListItem={this.state.currentListItem}
+            openWindow={this.handleClickOnMenuItem}
+            closeWindow={this.handleClickOnMenuButton}
+            />
+          </div>
         </header>
       </div>
     );
