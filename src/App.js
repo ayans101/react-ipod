@@ -147,6 +147,20 @@ class App extends React.Component {
             playing_song = false;
         }
     });
+
+    // handle click on next and prev button
+    $('.next-button').click(() => {
+      index_no += 1;
+      if(index_no === songs.length){
+        index_no = 0;
+      }
+      track.src = songs[index_no].path;
+      track.load();
+      track.play();
+      playing_song = true;
+    })
+    
+
   }
 
   componentDidUpdate() {
