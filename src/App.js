@@ -159,6 +159,7 @@ class App extends React.Component {
       track.play();
       playing_song = true;
       this.setState({
+        currentListItem,
         track,
         index_no,
         playing_song
@@ -174,6 +175,7 @@ class App extends React.Component {
       track.play();
       playing_song = true;
       this.setState({
+        currentListItem,
         track,
         index_no,
         playing_song
